@@ -9,11 +9,13 @@ from secrets import *
 from datetime import datetime, date
 
 current_time = str(datetime.now().time())
-current_date = str(date.today())
 current_time = current_time[0:5]
+current_date = str(date.today())
+station = "BPN"
 
 
-url = "https://transportapi.com/v3/uk/train/station/BPN/"+current_date+"/"+current_time+"/timetable.json?app_id="+app_id+"&app_key="+api_key+"&train_status=passenger"
+
+url = "https://transportapi.com/v3/uk/train/station/"+station+"/"+current_date+"/"+current_time+"/timetable.json?app_id="+app_id+"&app_key="+api_key+"&train_status=passenger"
 r = requests.get(url)
 if r :
         media = vlc.MediaPlayer("bingbong.mp3")
